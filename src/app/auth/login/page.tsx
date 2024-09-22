@@ -1,7 +1,3 @@
-import { Metadata } from "next";
-import Link from "next/link";
-
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
   CardTitle,
@@ -12,29 +8,28 @@ import {
   Card,
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
+import { Metadata } from "next";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Register",
-  description: "Create a new account",
+  title: "Login",
+  description: "Login to your account",
 };
 
-export default function RegisterPage() {
+export default function LoginPage() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <Card className="w-[350px]">
         <CardHeader>
-          <CardTitle>Register</CardTitle>
+          <CardTitle>Login</CardTitle>
           <CardDescription>
-            Create a new account to get started.
+            Enter your email and password to login to your account.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form>
             <div className="grid w-full items-center gap-4">
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="name">Name</Label>
-                <Input id="name" placeholder="Enter your name" />
-              </div>
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="email">Email</Label>
                 <Input id="email" placeholder="Enter your email" type="email" />
@@ -43,15 +38,7 @@ export default function RegisterPage() {
                 <Label htmlFor="password">Password</Label>
                 <Input
                   id="password"
-                  placeholder="Choose a password"
-                  type="password"
-                />
-              </div>
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="confirmPassword">Confirm Password</Label>
-                <Input
-                  id="confirmPassword"
-                  placeholder="Confirm your password"
+                  placeholder="Enter your password"
                   type="password"
                 />
               </div>
@@ -59,11 +46,22 @@ export default function RegisterPage() {
           </form>
         </CardContent>
         <CardFooter className="flex flex-col space-y-4">
-          <Button className="w-full">Register</Button>
+          <Button className="w-full">Login</Button>
           <div className="text-sm text-center">
-            Already have an account?{" "}
-            <Link href="/auth/login" className="text-blue-500 hover:underline">
-              Login
+            <Link
+              href="/auth/forgot_password"
+              className="text-blue-500 hover:underline"
+            >
+              Forgot password?
+            </Link>
+          </div>
+          <div className="text-sm text-center">
+            Don&apos;t have an account?{" "}
+            <Link
+              href="/auth/register"
+              className="text-blue-500 hover:underline"
+            >
+              Register
             </Link>
           </div>
         </CardFooter>
